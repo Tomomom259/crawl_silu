@@ -1,0 +1,125 @@
+{
+  "seed_urls": [
+    "https://wy.xjtvs.com.cn/",
+    "https://wy.xjtvs.com.cn/news",
+    "https://wy.xjtvs.com.cn/xinjiang",
+    "https://wy.xjtvs.com.cn/program"
+  ],
+  "allowed_domains": [
+    "wy.xjtvs.com.cn"
+  ],
+  "force_response_encoding": "utf-8",
+  "min_uyghur_letters": 120,
+  "near_duplicate_hamming_distance": 6,
+  "simhash_band_count": 8,
+  "skip_crawl_url_patterns": [
+    "\\/live",
+    "\\/video",
+    "\\/audio",
+    "\\/radio",
+    "\\/tv",
+    "\\/watch",
+    "\\/listen",
+    "\\/player",
+    "\\/download",
+    "\\/app",
+    "\\/search",
+    "\\/comment",
+    "\\/login",
+    "\\/api",
+    "\\.m3u8$",
+    "\\.mp4$",
+    "\\.mp3$",
+    "\\.jpg$",
+    "\\.jpeg$",
+    "\\.png$",
+    "\\.webp$",
+    "\\.gif$",
+    "\\.svg$"
+  ],
+  "allow_article_url_patterns": [
+    "\\/20\\d{2}\\/\\d{2}\\/\\d{2}\\/",
+    "\\/detail",
+    "\\/article",
+    "\\/content",
+    "\\/news\\/\\d+",
+    "\\.html?$"
+  ],
+  "deny_article_url_patterns": [
+    "\\/live",
+    "\\/video",
+    "\\/audio",
+    "\\/radio",
+    "\\/tv",
+    "\\/watch",
+    "\\/listen",
+    "\\/player",
+    "\\/photo",
+    "\\/gallery"
+  ],
+  "deny_title_keywords": [
+    "تېلېۋىزور كۆرۈش",
+    "رادىيو ئاڭلاش",
+    "直播",
+    "播放",
+    "视频",
+    "音频"
+  ],
+  "drop_text_patterns": [
+    "تەۋسىيە",
+    "相关阅读",
+    "责任编辑",
+    "来源",
+    "分享到",
+    "看电视",
+    "听广播"
+  ],
+  "extraction": {
+    "title_selectors": [
+      "h1::text",
+      ".article-title::text",
+      ".news-title::text",
+      "meta[property='og:title']::attr(content)",
+      "title::text"
+    ],
+    "publish_time_selectors": [
+      "time::text",
+      ".publish-time::text",
+      ".time::text",
+      ".date::text",
+      "meta[property='article:published_time']::attr(content)"
+    ],
+    "content_selectors": [
+      "article",
+      ".article-content",
+      ".articleMain",
+      ".TRS_Editor",
+      ".news-content",
+      ".content",
+      "#content"
+    ],
+    "paragraph_selectors": [
+      "p",
+      "div > p",
+      "section p",
+      "li"
+    ],
+    "remove_selectors": [
+      "script",
+      "style",
+      "noscript",
+      "iframe",
+      "video",
+      "audio",
+      ".share",
+      ".recommend",
+      ".related",
+      ".footer",
+      ".header",
+      ".nav",
+      ".player",
+      ".tv-module",
+      ".radio-module"
+    ]
+  }
+}
