@@ -49,7 +49,7 @@ def load_site_rules(path: str | None) -> SiteRules:
         seed_urls=_t(data.get("seed_urls")),
         allowed_domains=_t(data.get("allowed_domains")),
         force_response_encoding=data.get("force_response_encoding", ""),
-        min_uyghur_letters=int(data.get("min_uyghur_letters", 120)),
+        min_uyghur_letters=int(data.get("min_uyghur_letters", 60)),
         near_duplicate_hamming_distance=int(data.get("near_duplicate_hamming_distance", 6)),
         simhash_band_count=int(data.get("simhash_band_count", 8)),
         skip_crawl_url_patterns=_t(data.get("skip_crawl_url_patterns")),
