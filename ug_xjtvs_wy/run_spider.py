@@ -15,6 +15,8 @@ def parse_args():
     p.add_argument("--stats-output", default="output/ug_xjtvs_wy_stats.json")
     p.add_argument("--jobdir", default="state/job")
     p.add_argument("--log-file", default="logs/spider.log")
+    p.add_argument("--debug-pages-output", default="output/ug_xjtvs_wy_debug_pages.jsonl")
+    p.add_argument("--debug-pages-limit", type=int, default=300)
     p.add_argument("--obey-robots", action="store_true")
     return p.parse_args()
 
@@ -27,7 +29,7 @@ def ensure_parent(path: str):
 
 def main():
     args = parse_args()
-    for p in [args.output, args.state_db, args.stats_output, args.log_file]:
+    for p in [args.output, args.state_db, args.stats_output, args.log_file, args.debug_pages_output]:
         ensure_parent(p)
     os.makedirs(args.jobdir, exist_ok=True)
 
@@ -38,6 +40,8 @@ def main():
     settings.set("STATS_OUTPUT_FILE", args.stats_output, priority="cmdline")
     settings.set("JOBDIR", args.jobdir, priority="cmdline")
     settings.set("LOG_FILE", args.log_file, priority="cmdline")
+    settings.set("DEBUG_PAGES_OUTPUT_FILE", args.debug_pages_output, priority="cmdline")
+    settings.set("DEBUG_PAGES_OUTPUT_LIMIT", int(args.debug_pages_limit), priority="cmdline")
     settings.set("ROBOTSTXT_OBEY", bool(args.obey_robots), priority="cmdline")
 
     process = CrawlerProcess(settings)

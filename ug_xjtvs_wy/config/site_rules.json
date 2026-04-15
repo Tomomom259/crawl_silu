@@ -9,7 +9,7 @@
     "wy.xjtvs.com.cn"
   ],
   "force_response_encoding": "utf-8",
-  "min_uyghur_letters": 120,
+  "min_uyghur_letters": 60,
   "near_duplicate_hamming_distance": 6,
   "simhash_band_count": 8,
   "skip_crawl_url_patterns": [
@@ -26,7 +26,6 @@
     "\\/search",
     "\\/comment",
     "\\/login",
-    "\\/api",
     "\\.m3u8$",
     "\\.mp4$",
     "\\.mp3$",
@@ -96,7 +95,16 @@
       ".TRS_Editor",
       ".news-content",
       ".content",
-      "#content"
+      "#content",
+      ".detail",
+      ".detail-content",
+      ".post-content",
+      ".main-content",
+      ".rich-text",
+      "[class*='content']",
+      "[class*='article']",
+      "[id*='content']",
+      "[id*='article']"
     ],
     "paragraph_selectors": [
       "p",

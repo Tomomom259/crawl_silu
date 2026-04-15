@@ -31,6 +31,16 @@ IMAGE_ONLY_HTML = """
 </body></html>
 """
 
+CONTENT_FIRST_HTML = """
+<html><body>
+<h1>تېما ئۇچۇرى</h1>
+<div class='detail-content'>
+  <p>بۇ بەتتە URL ئاددىي بولسىمۇ، مەزمۇن بۆلىكى ئېنىق بولۇپ، يېتەرلىك ئۇيغۇرچە ھەرپلەر بار.</p>
+  <p>ئىككىنچى قۇر تېكىستى مەزمۇننىڭ داۋامى بولۇپ، ماقالە دەپ تونۇشقا ياردەم بېرىدۇ.</p>
+</div>
+</body></html>
+"""
+
 
 @unittest.skipUnless(SCRAPY_OK and LXML_OK, "requires scrapy and lxml")
 class TestExtraction(unittest.TestCase):
@@ -54,3 +64,9 @@ class TestExtraction(unittest.TestCase):
         res = self._response("https://wy.xjtvs.com.cn/photo/1.html", IMAGE_ONLY_HTML)
         page = self.extractor.extract_page(res)
         self.assertFalse(page.is_article)
+
+    def test_content_first_article_without_allowlist_url(self):
+        res = self._response("https://wy.xjtvs.com.cn/channel/topic-page", CONTENT_FIRST_HTML)
+        page = self.extractor.extract_page(res)
+        self.assertTrue(page.is_article)
+        self.assertGreaterEqual(page.uyghur_letters, 40)

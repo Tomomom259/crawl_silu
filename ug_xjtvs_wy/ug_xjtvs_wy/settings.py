@@ -22,3 +22,6 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+DEBUG_PAGES_OUTPUT_FILE = "output/ug_xjtvs_wy_debug_pages.jsonl"
+DEBUG_PAGES_OUTPUT_LIMIT = 300
